@@ -2,15 +2,15 @@ class LoginService {
   constructor($http, ResourcesUrl) {
     this.$http = $http;
     this.ResourcesUrl = ResourcesUrl;
-    this.getUsurio;
-    this.getPermisos;
+    this.getUser;
+    this.getPermissions;
   }
 
-  getUsurio() {
+  getUser() {
     return this.$http.post(`${this.ResourcesUrl.api}auth/user`).then(response => response.data);
   }
 
-  getPermisos() {
+  getPermissions() {
     return this.$http.post(`${this.ResourcesUrl.api}auth/permissions`).then(response => response.data);
   }
 }

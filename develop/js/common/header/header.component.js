@@ -1,4 +1,4 @@
-
+import HeaderController from './header.controller';
 /**
  * common/header/header.component.js
  *
@@ -9,6 +9,6 @@ export const HeaderComponent = {
   /*bindings: {
     speakers: '<'
   },*/
-  // controller: ,
+  controller: HeaderController,
   templateUrl: `./templates/common/header.html`,
 };

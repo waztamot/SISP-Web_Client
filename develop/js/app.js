@@ -6,12 +6,13 @@
 import angular from 'angular';
 import animate from 'angular-animate';
 import aria from 'angular-aria';
-import icons from 'angular-material-icons';
+// import icons from 'angular-material-icons';
 import material from 'angular-material';
 import sanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
 import authToken from 'satellizer';
-
+import loadingBar from 'angular-loading-bar';
+import 'angular-acl';
 import Constant from './common/contant';
 
 import { AppComponent } from './app.component';
@@ -22,11 +23,13 @@ const root = angular
   .module('SISP', [
     animate,
     aria,
-    icons,
+    // icons,
     material,
     sanitize,
     uiRouter,
     authToken,
+    loadingBar,
+    'mm.acl',
     Constant,
     Common,
     Components,
@@ -34,8 +37,8 @@ const root = angular
   .component('sispApp', AppComponent)
   .config(($mdThemingProvider, $locationProvider, $stateProvider, $urlRouterProvider) => {
     $mdThemingProvider.theme('default')
-    .primaryPalette('red')
-    .accentPalette('green');
+     .primaryPalette('red')
+     .accentPalette('green');
     
     $locationProvider.html5Mode(true);
 

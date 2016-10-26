@@ -1,4 +1,35 @@
-<h1>Hola mundo home</h1>
-<br>
-<button ng-click="$ctrl.boton1()">Bonton 1</button>
-<button ng-click="$ctrl.boton2()">Bonton 2</button>
+<div layout="column" layout-fill>
+  <s-header></s-header>
+  <md-content flex layout-padding>
+
+    <div layout="row" layout-align="space-around center" layout-wrap>
+      <md-card flex-xs="95" flex-gt-xs="40" flex-lg="25"  ng-repeat="(key, value) in [1]">
+        <md-card-header>
+          <md-card-header-text>
+            <span class="md-title">Productos</span>
+            <!-- <span class="md-subhead">Material</span> -->
+          </md-card-header-text>
+        </md-card-header>
+        <img ng-src="./images/productos.png" class="md-card-image" alt="Productos">
+        <md-card-actions layout="row" layout-align="center">
+          <md-card-icon-actions ng-if="$ctrl.can('config')">
+            <md-button class="md-icon-button md-accent md-hue-3" ng-click="$ctrl.on()">
+              <md-icon md-font-set="material-icons">settings</md-icon>
+            </md-button>
+          </md-card-icon-actions>
+          <md-button class="md-raised md-primary">Solicitar</md-button>
+          <md-button class="md-primary">Entregar</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+    <div layout="column" layout-align="center center">
+      <h2 ng-if="$ctrl.can('config')">Puedes ver esto por que tienes el permiso de configuracion</h2>
+      <h2 ng-if="$ctrl.can('security')">Puedes ver esto por que tienes el permiso de seguridad</h2>
+      <h1>Hola mundo home</h1>
+      <br>
+      <button ng-click="$ctrl.boton1()">Bonton 1</button>
+      <button ng-click="$ctrl.onLogout()">Cerrar Sesión</button>
+    </div>
+  </md-content>
+</div>
