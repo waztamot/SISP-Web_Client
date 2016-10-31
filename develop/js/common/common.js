@@ -1,6 +1,6 @@
 import angular from 'angular';
-import Header from './header/header';
 import Login from './login/login';
+import Header from './header/header';
 // import Footer from './footer/footer';
 
 const common = angular

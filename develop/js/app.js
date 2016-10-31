@@ -14,7 +14,6 @@ import authToken from 'satellizer';
 import loadingBar from 'angular-loading-bar';
 import 'angular-acl';
 import '../../node_modules/alertify.js/dist/js/ngAlertify.js';
-// import 'alertify.js';
 
 import Constant from './common/contant';
 import { AppComponent } from './app.component';
@@ -38,7 +37,7 @@ const root = angular
     Common,
     Components,
   ])
-  .component('sispApp', AppComponent)
+  .component('sispApp', AppComponent) // <sisp-app></sisp-app>
   .config(($mdThemingProvider, $locationProvider, $stateProvider, $urlRouterProvider) => {
     $mdThemingProvider.theme('default')
      .primaryPalette('red')

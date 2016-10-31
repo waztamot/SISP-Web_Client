@@ -5,5 +5,10 @@
  */
 
 export const AppComponent = {
-  templateUrl: `./templates/app.html`
+  // templateUrl: `./templates/app.html`
+  template: `<div layout="column" layout-fill>
+                <s-header></s-header>
+                <md-content flex layout-padding ui-view>
+                </md-content>
+              </div>`,
 };

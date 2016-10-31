@@ -8,10 +8,10 @@ const individual = angular
   .component('requestIndividual', IndividualComponent)
   .config(($stateProvider) => {
     $stateProvider
-      .state('productIndividual', {
+      .state('requestIndividual', {
         parent: 'app',
-        component: 'requestIndividual',
         url: 'product/request/individual',
+        component: 'requestIndividual',
       })
   })
   .name;
