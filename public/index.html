@@ -15,6 +15,29 @@
   <!-- Script para que funcione el LiveReload -->
   <script type="text/javascript">
     document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>');
-  </script> 
+  </script>
+  <script type="text/ng-template" id="typeSolicitude.tmpl.html">
+    <md-dialog aria-label="Tipo de Solicitud">
+      <form ng-cloak>
+        <md-toolbar>
+          <div class="md-toolbar-tools md-medium-tall">
+            <h2>Tipo de Solicitud</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+              <md-icon md-font-set="material-icons" aria-label="Cerrar">close</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-dialog-actions layout="row" layout-align="center center" style="padding: 0">
+          <md-button ui-sref="productIndividual" ng-click="close()">
+            Individual
+          </md-button>
+          <md-button class="md-primary" ng-click="answer('useful')">
+            Grupal
+          </md-button>
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+  </script>
 </body>
 </html>

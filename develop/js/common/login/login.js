@@ -28,15 +28,13 @@ const login = angular
   .run(($rootScope, $state, $auth, AclService, LoginService) => {
 
     console.log('Run Login');
-    if ($auth.isAuthenticated()) {
-      $state.go('home');
-    } else {
+    
+    if (!$auth.isAuthenticated()) {
       $state.go('login');
     }
 
     $rootScope.$on('$stateChangeStart', (event, toState) => {
       console.log('$stateChangeStart Login');
-      debugger
       // If there is any user data in local storage then the user is quite
       // likely authenticated. If their token is expired, or if they are
       // otherwise not actually authenticated, they will be redirected to

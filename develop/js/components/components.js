@@ -7,10 +7,12 @@
 import angular from 'angular';
 
 import Home from './home/home';
+import Product from './product/product';
 
 const components = angular
   .module('SISP.components', [
-    Home
+    Home,
+    Product,
   ])
   .name;
 

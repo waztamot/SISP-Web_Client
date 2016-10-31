@@ -13,8 +13,10 @@ import uiRouter from 'angular-ui-router';
 import authToken from 'satellizer';
 import loadingBar from 'angular-loading-bar';
 import 'angular-acl';
-import Constant from './common/contant';
+import '../../node_modules/alertify.js/dist/js/ngAlertify.js';
+// import 'alertify.js';
 
+import Constant from './common/contant';
 import { AppComponent } from './app.component';
 import Common from './common/common';
 import Components from './components/components';
@@ -30,6 +32,8 @@ const root = angular
     authToken,
     loadingBar,
     'mm.acl',
+    'ngAlertify',
+    // alertify,
     Constant,
     Common,
     Components,
@@ -41,6 +45,12 @@ const root = angular
      .accentPalette('green');
     
     $locationProvider.html5Mode(true);
+
+    $stateProvider
+      .state('app', {
+        url: '/',
+        component: 'sispApp',
+      })
 
   })
   .name;

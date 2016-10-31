@@ -4,12 +4,21 @@ class HeaderController {
     this.$state = $state;
     this.$auth = $auth;
     this.AclService = AclService;
-    this.HomeService = HomeService
+    this.HomeService = HomeService;
+    this.currentUser = this.getCurrentUser();
   }
 
   can(ability) {
     return this.AclService.can(ability);
   }
+
+  getCurrentUser() {
+    return JSON.parse(sessionStorage.getItem('user'));
+  }
+
+  openMenu($mdOpenMenu, ev) {
+    $mdOpenMenu(ev);
+  };
 
   onLogout() {
     this.$auth.logout();

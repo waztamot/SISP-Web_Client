@@ -1,10 +1,27 @@
 <md-toolbar class="md-whiteframe-2dp">
   <div class="md-toolbar-tools">
-    <h2>Organización El Tunal</h2>
+    <img ng-src="/images/isotipo.png" alt="Organización El Tunal" width="100">
     <span flex></span>
-    <md-button aria-label="Salir" ng-click="$ctrl.onLogout()">
-      <md-icon md-font-set="material-icons">exit_to_app</md-icon>
-      Salir
-    </md-button>
+    <span style="font-size: 16px;">{{$ctrl.currentUser.name}}</span>
+    <md-menu  md-offset="50px" md-position-mode="target-right target">
+      <md-button aria-label="Menu Usuario" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
+        <md-icon md-font-set="material-icons">more_vert</md-icon>
+      </md-button>
+      <md-menu-content width="2">
+        <md-menu-item>
+          <md-button ng-click="">
+            <md-icon md-font-set="material-icons">vpn_key</md-icon>
+            Cambiar Contraseña
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button aria-label="Salir" ng-click="$ctrl.onLogout()">
+            <md-icon md-font-set="material-icons">exit_to_app</md-icon>
+            Salir
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
   </div>
 </md-toolbar>

@@ -1,9 +1,10 @@
 class LoginController {  
-  constructor($rootScope, $auth, $state, AclService, LoginService) {
+  constructor($rootScope, $auth, $state, AclService, alertify, LoginService) {
     this.$rootScope = $rootScope;
     this.$auth = $auth;
     this.$state = $state;
     this.AclService = AclService;
+    this.alertify = alertify;
     this.loginService = LoginService;
     this.user = {};
   }
@@ -46,12 +47,12 @@ class LoginController {
         })
         .catch((fails) => {
           console.log(fails);
-          // Alertify.error(fails.data.error);
+          this.alertify.error(fails.data.error);
           return false;
         })
       })
       .catch((fails) => {
-        // Alertify.error(fails.data.error);
+        this.alertify.error(fails.data.error);
         console.log('Fallo el login');
         return false;
       })
@@ -59,6 +60,6 @@ class LoginController {
 
 }
 
-LoginController.$inject = ['$rootScope', '$auth', '$state', 'AclService', 'LoginService'];
+LoginController.$inject = ['$rootScope', '$auth', '$state', 'AclService', 'alertify', 'LoginService'];
 
 export default LoginController;
