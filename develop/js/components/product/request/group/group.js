@@ -1,11 +1,19 @@
 import angular from 'angular';
-// import { CardModuleComponent } from './card_module.component';
+import { GroupComponent } from './group.component';
 
 const group = angular
   .module('request.group', [
     // dasdas
     ])
-  // .component('cardModule', CardModuleComponent)
+  .component('requestGroup', GroupComponent)
+  .config(($stateProvider) => {
+    $stateProvider
+      .state('requestGroup', {
+        parent: 'app',
+        url: 'product/request/group',
+        component: 'requestGroup',
+      })
+  })
   .name;
 
 export default group;

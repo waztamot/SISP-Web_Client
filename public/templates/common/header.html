@@ -1,8 +1,13 @@
-<md-toolbar class="md-whiteframe-2dp">
+<md-toolbar class="md-whiteframe-2dp Header">
   <div class="md-toolbar-tools">
-    <img ng-src="/images/isotipo.png" alt="Organización El Tunal" width="100">
+    <a ui-sref="home" class="Header-logo">
+      <img ng-src="/images/isotipo.png" alt="Organización El Tunal" width="100">
+    </a>
     <span flex></span>
-    <span style="font-size: 16px;">{{$ctrl.currentUser.name}}</span>
+    <figure class="Header-avatar">
+      <img ng-src="./images/avatar2.png" alt="A">
+    </figure>
+    <span class="Header-nameUser">{{$ctrl.currentUser.name}}</span>
     <md-menu  md-offset="50px" md-position-mode="target-right target">
       <md-button aria-label="Menu Usuario" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
         <md-icon md-font-set="material-icons">more_vert</md-icon>

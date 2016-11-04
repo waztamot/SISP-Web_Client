@@ -40,8 +40,18 @@ const root = angular
   .component('sispApp', AppComponent) // <sisp-app></sisp-app>
   .config(($mdThemingProvider, $locationProvider, $stateProvider, $urlRouterProvider) => {
     $mdThemingProvider.theme('default')
-     .primaryPalette('red')
-     .accentPalette('green');
+      .primaryPalette('red', {
+        'default': '600', // by default use shade 400 from the pink palette for primary intentions
+        'hue-1': '300', // use shade 100 for the <code>md-hue-1</code> class
+        'hue-2': '500', // use shade 600 for the <code>md-hue-2</code> class
+        'hue-3': 'A700' // use shade A100 for the <code>md-hue-3</code> class
+      })
+     .accentPalette('grey', {
+        'default': '900', // by default use shade 400 from the pink palette for primary intentions
+        'hue-1': '300', // use shade 100 for the <code>md-hue-1</code> class
+        'hue-2': '500', // use shade 600 for the <code>md-hue-2</code> class
+        'hue-3': '700' // use shade A100 for the <code>md-hue-3</code> class
+      });
     
     $locationProvider.html5Mode(true);
 

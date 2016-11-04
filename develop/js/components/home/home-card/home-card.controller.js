@@ -1,6 +1,5 @@
 class CardModuleController {
-  constructor($rootScope, $state, $mdDialog, alertify, AclService) {
-    this.$rootScope = $rootScope;
+  constructor($state, $mdDialog, alertify, AclService) {
     this.$state = $state;
     this.$mdDialog = $mdDialog;
     this.alertify = alertify;
@@ -37,7 +36,7 @@ class CardModuleController {
 
 }
 
-CardModuleController.$inject = ['$rootScope', '$state', '$mdDialog', 'alertify', 'AclService'];
+CardModuleController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
 console.log('cargo card_module controller')
 
 export default CardModuleController;

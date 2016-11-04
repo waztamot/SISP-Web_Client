@@ -1,8 +1,9 @@
 class HomeController {
-  constructor($rootScope, $state, $auth, AclService, HomeService) {
-    this.$rootScope = $rootScope;
+  constructor($state, $auth, $mdDialog, alertify, AclService, HomeService) {
     this.$state = $state;
     this.$auth = $auth;
+    this.$mdDialog = $mdDialog;
+    this.alertify = alertify;
     this.AclService = AclService;
     this.HomeService = HomeService
   }
@@ -10,6 +11,30 @@ class HomeController {
   can(ability) {
     return this.AclService.can(ability);
   }
+
+  cancel() {
+    this.$mdDialog.cancel();
+  };
+
+  showDialog(ev) {
+    this.$mdDialog.show({
+      controller: ($scope, $mdDialog) => {
+        $scope.close = () => {
+          $mdDialog.cancel();
+        };
+      },
+      templateUrl: 'typeSolicitude.tmpl.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true,
+      // fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+    })
+    .then(function(answer) {
+      // $scope.status = 'You said the information was "' + answer + '".';
+    }, function() {
+      // $scope.status = 'You cancelled the dialog.';
+    });
+  };
 
   boton1() {
     console.log('Aja1');
@@ -32,7 +57,7 @@ class HomeController {
 
 }
 
-HomeController.$inject = ['$rootScope', '$state', '$auth', 'AclService', 'HomeService'];
+HomeController.$inject = ['$state', '$auth', '$mdDialog', 'alertify', 'AclService', 'HomeService'];
 console.log('cargo home controller')
 
 export default HomeController;

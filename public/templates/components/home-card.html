@@ -7,11 +7,11 @@
   </md-card-header>
   <img ng-src="./images/productos.jpg" class="md-card-image" alt="Productos">
   <md-card-actions layout="row" layout-align="center">
-    <md-card-icon-actions ng-if="$ctrl.can('config')">
+    <md-card-icon-actions ng-if="$ctrl.can('product.config')">
       <md-button class="md-fab md-mini md-accent md-hue-3" ng-click="$ctrl.on()">
         <md-icon md-font-set="material-icons">settings</md-icon>
         <md-tooltip md-direction="top">
-          Configurar
+          Gestion
         </md-tooltip>
       </md-button>
     </md-card-icon-actions>

@@ -1,6 +1,5 @@
 class LoginController {  
-  constructor($rootScope, $auth, $state, AclService, alertify, LoginService) {
-    this.$rootScope = $rootScope;
+  constructor($auth, $state, AclService, alertify, LoginService) {
     this.$auth = $auth;
     this.$state = $state;
     this.AclService = AclService;
@@ -30,14 +29,8 @@ class LoginController {
           // The user's authenticated state gets flipped to
           // true so we can now show parts of the UI that rely
           // on the user being logged in
-          this.$rootScope.authenticated = true;
-          // Putting the user's data on $rootScope allows
-          // us to access it anywhere across the app
-          this.$rootScope.currentUser = response.user;
-          this.$rootScope.currentAcl = response.acl;
-
-          let aclData = this.$rootScope.currentAcl[0];
-          let role = Object.keys(this.$rootScope.currentAcl[0])[0];
+          let aclData = response.acl;
+          let role = Object.keys(response.acl)[0];
           // console.log(role);
           this.AclService.setAbilities(aclData);
           this.AclService.attachRole(role);
@@ -60,6 +53,6 @@ class LoginController {
 
 }
 
-LoginController.$inject = ['$rootScope', '$auth', '$state', 'AclService', 'alertify', 'LoginService'];
+LoginController.$inject = ['$auth', '$state', 'AclService', 'alertify', 'LoginService'];
 
 export default LoginController;

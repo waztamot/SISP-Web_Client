@@ -9,8 +9,7 @@ const home = angular
   ])
   .service('HomeService', HomeService)
   .component('home', HomeComponent)
-  .config(($stateProvider, AclServiceProvider) => {
-    AclServiceProvider.resume();
+  .config(($stateProvider) => {
     console.log('Config Home Module');
     $stateProvider
       .state('home', {
