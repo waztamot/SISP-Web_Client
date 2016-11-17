@@ -1,4 +1,4 @@
-// import IndividualController from './header.controller';
+import GroupController from './group.controller';
 /**
  * common/header/header.component.js
  *
@@ -6,9 +6,11 @@
  */
 
 export const GroupComponent = {
-  /*bindings: {
-    speakers: '<'
-  },*/
-  // controller: HeaderController,
-  template: `<h1>hola módulo de solicitud de productos grupal al mundo cruel </h1>`,
+  bindings: {
+    combos: '<',
+    staff: '<',
+  },
+  controller: GroupController,
+  // template: `<h1>hola módulo de solicitud de productos grupal al mundo cruel </h1>`,
+  templateUrl: './templates/components/requestGroup.html',
 };

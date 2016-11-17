@@ -39,5 +39,33 @@
       </form>
     </md-dialog>
   </script>
+  <script type="text/ng-template" id="comboDinamic.tmpl.html">
+    <md-dialog aria-label="Tipo de Solicitud">
+      <form ng-cloak>
+        <md-toolbar>
+          <div class="md-toolbar-tools md-medium-tall">
+            <h2>Combo de Leche</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+              <md-icon md-font-set="material-icons" aria-label="Cerrar">close</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-dialog-content>
+          <md-tabs md-dynamic-height md-border-bottom flex="100">
+            <combo-dinamic></combo-dinamic>
+          </md-tabs>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center center" style="padding: 0">
+          <md-button ui-sref="requestIndividual" ng-click="close()">
+            Cancelar
+          </md-button>
+          <md-button class="md-primary" ui-sref="requestGroup" ng-click="close()">
+            Adquirir
+          </md-button>
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+  </script>
 </body>
 </html>

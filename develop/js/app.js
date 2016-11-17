@@ -12,6 +12,7 @@ import sanitize from 'angular-sanitize';
 import uiRouter from 'angular-ui-router';
 import authToken from 'satellizer';
 import loadingBar from 'angular-loading-bar';
+import dataTable from 'angular-material-data-table';
 import 'angular-acl';
 import '../../node_modules/alertify.js/dist/js/ngAlertify.js';
 
@@ -30,6 +31,7 @@ const root = angular
     uiRouter,
     authToken,
     loadingBar,
+    dataTable,
     'mm.acl',
     'ngAlertify',
     // alertify,

@@ -41,6 +41,6 @@ class RequestIndividualController {
 }
 
 RequestIndividualController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
-console.log('cargo card_module controller')
+console.log('cargo individual controller')
 
 export default RequestIndividualController;
