@@ -121,5 +121,5 @@ class RequestGroupService {
 }
 
 RequestGroupService.$inject = ['$http', 'ResourcesUrl'];
-console.log('cargo grupo service')
+
 export default RequestGroupService;

@@ -10,7 +10,7 @@ const home = angular
   .service('HomeService', HomeService)
   .component('home', HomeComponent)
   .config(($stateProvider) => {
-    console.log('Config Home Module');
+    
     $stateProvider
       .state('home', {
         parent: 'app',

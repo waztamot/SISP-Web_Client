@@ -67,6 +67,5 @@ class ComboStatictController {
 }
 
 ComboStatictController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
-console.log('cargo individual controller')
 
 export default ComboStatictController;

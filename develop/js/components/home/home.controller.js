@@ -58,6 +58,5 @@ class HomeController {
 }
 
 HomeController.$inject = ['$state', '$auth', '$mdDialog', 'alertify', 'AclService', 'HomeService'];
-console.log('cargo home controller')
 
 export default HomeController;

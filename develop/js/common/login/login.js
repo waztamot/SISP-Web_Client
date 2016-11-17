@@ -26,7 +26,6 @@ const login = angular
       })
   })
   .run(($transitions, $auth, $state) => {
-    console.log('Run Login');
     
     if (!$auth.isAuthenticated()) {
       $state.go('login');

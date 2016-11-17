@@ -38,6 +38,5 @@ class RequestGroupController {
 }
 
 RequestGroupController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
-console.log('cargo grupo controller')
 
 export default RequestGroupController;

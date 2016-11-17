@@ -16,5 +16,5 @@ class HomeService {
 }
 
 HomeService.$inject = ['$http', 'ResourcesUrl'];
-console.log('cargo home service')
+
 export default HomeService;

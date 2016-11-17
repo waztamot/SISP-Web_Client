@@ -37,6 +37,5 @@ class CardModuleController {
 }
 
 CardModuleController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
-console.log('cargo card_module controller')
 
 export default CardModuleController;

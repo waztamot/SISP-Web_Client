@@ -17,7 +17,6 @@ class LoginController {
     // Use Satellizer's $auth service to login
     this.$auth.login(credentials)
       .then(() => {
-        console.log('Login Exitoso');
         this.loginService.getUser()
         .then((response) => {
           // console.log(response)

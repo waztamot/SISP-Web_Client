@@ -36,6 +36,5 @@ class HeaderController {
 }
 
 HeaderController.$inject = ['$rootScope', '$state', '$auth', 'AclService', 'HomeService'];
-console.log('cargo header controller')
 
 export default HeaderController;
