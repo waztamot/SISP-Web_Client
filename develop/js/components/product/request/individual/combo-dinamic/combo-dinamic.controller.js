@@ -10,6 +10,17 @@ class ComboDinamicController {
     return this.AclService.can(ability);
   }
 
+  
+  /*onSelect(check, price) {
+    if (check) {
+      this.data.quantity++;
+      this.data.total += parseFloat(price);
+    } else {
+      this.data.quantity--;
+      this.data.total -= parseFloat(price);
+    }
+  }*/
+
   cancel() {
     this.$mdDialog.cancel();
   };

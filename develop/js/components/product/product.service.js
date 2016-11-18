@@ -1,4 +1,4 @@
-class RequestGroupService {  
+class ProductService {  
   constructor ($http, ResourcesUrl) {
     this.$http = $http;
     this.ResourcesUrl = ResourcesUrl;
@@ -120,6 +120,6 @@ class RequestGroupService {
   }
 }
 
-RequestGroupService.$inject = ['$http', 'ResourcesUrl'];
+ProductService.$inject = ['$http', 'ResourcesUrl'];
 
-export default RequestGroupService;
+export default ProductService;

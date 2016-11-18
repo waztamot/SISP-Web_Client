@@ -1,9 +1,10 @@
 class ComboStatictController {
-  constructor($state, $mdDialog, alertify, AclService, Combo) {
+  constructor($state, $mdDialog, alertify, AclService, RequestService) {
     this.$state = $state;
     this.$mdDialog = $mdDialog;
     this.alertify = alertify;
     this.AclService = AclService;
+    this.requestService = RequestService;
     this.data;
   }
 
@@ -17,7 +18,9 @@ class ComboStatictController {
     this.data.quantity = this.combo.max_quantity;
 
     for (let key in this.combo.details) {
-      this.data.total += (parseInt(this.combo.details[key].quantity) * parseFloat(this.combo.details[key].product.price.price));
+      this.data.total += (
+        parseInt(this.combo.details[key].quantity) * parseFloat(this.combo.details[key].product.price.price)
+      );
     }
   }
 
@@ -25,18 +28,24 @@ class ComboStatictController {
     return this.AclService.can(ability);
   }
 
-  /*onSelect(check, price) {
-    if (check) {
-      this.data.quantity++;
-      this.data.total += parseFloat(price);
-    } else {
-      this.data.quantity--;
-      this.data.total -= parseFloat(price);
-    }
-  }*/
-
   onSubmit() {
     if (this.data.quantity) {
+
+      let request = {
+        type_combo: this.combo.type,
+        combo_id: this.combo.id,
+        quantity: this.data.quantity,
+
+      }
+
+      this.requestService.individualSave(request)
+        .then((response) => {
+
+        })
+        .catch((fails) => {
+
+        });
+
       this.combo.buy = true;
       this.alertify.success('Pedido realizado');
     } else {
@@ -44,28 +53,8 @@ class ComboStatictController {
     }
   }
 
-  showDialog(ev) {
-    this.$mdDialog.show({
-      controller: ($scope, $mdDialog) => {
-        $scope.close = () => {
-          $mdDialog.cancel();
-        };
-      },
-      templateUrl: 'typeSolicitude.tmpl.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose: true,
-      // fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-    })
-    .then(function(answer) {
-      // $scope.status = 'You said the information was "' + answer + '".';
-    }, function() {
-      // $scope.status = 'You cancelled the dialog.';
-    });
-  };
-
 }
 
-ComboStatictController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService'];
+ComboStatictController.$inject = ['$state', '$mdDialog', 'alertify', 'AclService', 'RequestService'];
 
 export default ComboStatictController;
