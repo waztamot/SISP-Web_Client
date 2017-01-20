@@ -5,7 +5,7 @@ class ProductService {
   }
 
   getComboList() {
-    return this.$http.post(`${this.ResourcesUrl.api}product/combo/list`).then(response => response.data);
+    return this.$http.post(`${this.ResourcesUrl.api}product/combo/list`).then(response => response.data.data);
   }
 
   getStaffList() {

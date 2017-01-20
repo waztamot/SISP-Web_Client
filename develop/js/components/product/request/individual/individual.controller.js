@@ -4,6 +4,7 @@ class RequestIndividualController {
     this.$mdDialog = $mdDialog;
     this.alertify = alertify;
     this.AclService = AclService;
+    // console.log(JSON.stringify(this.combos));
   }
 
   can(ability) {
@@ -15,7 +16,6 @@ class RequestIndividualController {
   };
 
   test() {
-    this.alertify.success('Compra realizada');
   }
 
   showDialog(ev) {

@@ -15,6 +15,7 @@ import loadingBar from 'angular-loading-bar';
 import dataTable from 'angular-material-data-table';
 import 'angular-acl';
 import '../../node_modules/alertify.js/dist/js/ngAlertify.js';
+import '../../node_modules/angular-material-expansion-panel';
 
 import Constant from './common/contant';
 import { AppComponent } from './app.component';
@@ -34,7 +35,7 @@ const root = angular
     dataTable,
     'mm.acl',
     'ngAlertify',
-    // alertify,
+    'material.components.expansionPanels',
     Constant,
     Common,
     Components,

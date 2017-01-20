@@ -1,14 +1,18 @@
 import angular from 'angular';
+import RequestIndividualService from './individual.service.js';
 import { IndividualComponent } from './individual.component';
 import { ComboDinamicComponent } from './combo-dinamic/combo-dinamic.component';
 import { ComboStatictComponent } from './combo-statict/combo-statict.component';
+import { ComboSubGroupStatictComponent } from './combo-sub-group/combo-sub-group.component';
 
 const individual = angular
   .module('request.individual', [
     // dasdas
     ])
+  .service('RequestIndividualService', RequestIndividualService)
   .component('comboDinamic', ComboDinamicComponent)
   .component('comboStatict', ComboStatictComponent)
+  .component('comboSubGroupStatict', ComboSubGroupStatictComponent)
   .component('requestIndividual', IndividualComponent)
   .config(($stateProvider) => {
     $stateProvider
@@ -23,7 +27,7 @@ const individual = angular
           /*staff: (ProductService) => {
             return ProductService.getStaffList();
           }*/
-        }
+        },
       })
   })
   .name;

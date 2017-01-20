@@ -2,6 +2,15 @@
 @import ./angular-material-data-table.sass
 @import ./loading-bar.sass
 @import ../../node_modules/alertify.js/src/sass/alertify.scss
+@import ../../node_modules/angular-material-expansion-panel/src/expansionPanels.scss
+@import ../../node_modules/angular-material-expansion-panel/src/expansionPanels-theme.scss
+
+*, *:focus
+  outline: none
+
+input
+  border: none
+  width: 100%
 
 fieldset
   legend
@@ -33,6 +42,11 @@ fieldset
   &-nameUser
     font-size: 16px
 
+
+md-input-container 
+  .md-errors-spacer
+    // display: none
+
 .table-head-fixed
   table-layout: fixed
   border-collapse: collapse
@@ -42,3 +56,56 @@ fieldset
     color: green
   &-error
     color: red
+
+.margin-none
+  margin: 0
+
+.padding-none
+  padding: 0
+
+.title-bar-management
+  min-height: 40px
+  max-height: 40px
+
+.buttom-fixed
+  position: fixed
+  bottom: 20px
+  right: 20px
+
+.ListGroup
+  margin: 0
+  padding: 0
+  border: 0
+  list-style: none
+
+  &-item
+    display: flex
+    align-items: center
+    justify-content: space-between
+    display: flex
+    border-left: solid 2px transparent
+    border-right: none
+    padding: 5px 0 5px 10px
+
+    p
+      display: inline-block
+      margin: 0
+
+    .md-button
+      margin-right: 0
+    
+    &:first-child
+      border-top none
+
+    &:hover
+      // border-left solid 2px #4caf50
+      // border-left: solid 2px #9c27b0
+      border-left: solid 2px red
+      // background: #f5f5f5
+      background: rgba(193, 193, 193, 0.2)
+      border-radius: 0 50px 50px 0
+
+md-toolbar
+  &.small
+    min-height: 48px
+    max-height: 48px

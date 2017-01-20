@@ -1,0 +1,130 @@
+<div layout="row" layout-align="center center" layout-wrap>
+  <h3 style="margin-right: 16px;">Tipo de entrega</h3>
+  <md-switch class="md-primary" ng-model="delivery" ng-change="$ctrl.onDeliver(delivery)" aria-label="Tipo de entrega" style="width: 115px;">
+    {{ $ctrl.delivery.type }}
+  </md-switch>
+</div>
+<md-card>
+  <md-card-content layout="row">
+    <section flex="10">
+      <md-button class="md-fab md-primary" aria-label="Buscar..." ng-click="$ctrl.search($event)">
+        <md-icon>search</md-icon>
+        <md-tooltip md-direction="right">
+          Buscar...
+        </md-tooltip>
+      </md-button>
+    </section>
+    <section flex="90" layout="row" layout-align="space-around center" layout-wrap>
+      <div flex="50">
+        <p class="margin-none">Nombre: <strong>{{ $ctrl.employee.name }}</strong></p>
+        <p class="margin-none">Cédula: <strong>{{ $ctrl.employee.identification }}</strong></p>
+        <p class="margin-none">Empresa: <strong>{{ $ctrl.employee.company }}</strong></p>
+      </div>
+      <div flex="50">
+        <p class="margin-none">Centro de Costo: <strong>{{ $ctrl.employee.cost_center }}</strong></p>
+        <p class="margin-none">Cargo: <strong>{{ $ctrl.employee.employment }}</strong></p>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card ng-if="false">
+  <md-list class="padding-none">
+    <md-subheader class="md-no-sticky">Lista de combos
+    </md-subheader>
+    <md-list-item ng-repeat="combo in $ctrl.combos">
+      <p> {{ combo.name }} </p>
+      <md-checkbox class="md-secondary" aria-label="combo.name" ng-click="$ctrl.toggleCheckbox(combo.requisition_id)"></md-checkbox>
+    </md-list-item>
+    <!-- <md-radio-group ng-model="data.group1">
+      <md-list-item >
+        <p>Combo de Huevos</p>
+        <md-checkbox class="md-primary" ng-model="topping.wanted1"></md-checkbox>
+      </md-list-item>
+      <md-list-item >
+        <p>Combo de Leche</p>
+        <md-checkbox class="md-primary" ng-model="topping.wanted2"></md-checkbox>
+      </md-list-item>
+      <md-list-item >
+        <p>Combo de Embutido</p>
+        <md-checkbox class="md-primary" ng-model="topping.wanted3"></md-checkbox>
+      </md-list-item>
+    </md-radio-group> -->
+  </md-list>
+
+
+  <md-card-actions layout="row" layout-align="center">
+    <md-button class="md-primary" aria-label="Buscar..." ng-click="$ctrl.validateProduct($event)">
+      Entregar
+    </md-button>
+  </md-card-actions>
+</md-card>
+<article layout-padding ng-if="$ctrl.requisitions">
+  <md-toolbar class="small">
+    <div class="md-toolbar-tools">
+      <h2 class="md-flex">Lista de combos</h2>
+    </div>
+  </md-toolbar>
+
+  <md-expansion-panel-group md-component-id="panelGroup" multiple >
+    <md-expansion-panel md-component-id="panelOne" ng-repeat="combo in $ctrl.requisitions">
+     
+      <md-expansion-panel-collapsed>
+        <div class="md-title">{{ combo.combo.name }}</div>
+        <div class="md-summary"></div>
+        <md-expansion-panel-icon></md-expansion-panel-icon>
+      </md-expansion-panel-collapsed>
+     
+     
+      <md-expansion-panel-expanded>
+        <md-expansion-panel-header>
+          <div class="md-title">{{ combo.combo.name }}</div>
+          <div class="md-summary"><md-fab-speed-dial md-open="$ctrl.isOpen1" md-direction="right" class="md-scale" ng-mouseenter="$ctrl.isOpen1=true" ng-mouseleave="$ctrl.isOpen1=false">
+              <md-fab-trigger>
+                <md-button aria-label="menu" class="md-icon-button">
+                  <md-icon md-font-set="material-icons" aria-label="Sub-menu">more_vert</md-icon>
+                </md-button>
+              </md-fab-trigger>
+              <md-fab-actions>
+                <div>
+                  <md-icon md-font-set="material-icons" aria-label="Android">visibility</md-icon>
+                </div>
+                <div>
+                  <md-icon md-font-set="material-icons" aria-label="Android">edit</md-icon>
+                </div>
+                <div>
+                  <md-icon md-font-set="material-icons" aria-label="Android">monetization_on</md-icon>
+                </div>
+                <div>
+                  <md-icon md-font-set="material-icons" aria-label="Android">delete</md-icon>
+                </div>
+              </md-fab-actions>
+            </md-fab-speed-dial></div>
+          <md-expansion-panel-icon  ng-click="$panel.collapse()"></md-expansion-panel-icon>
+        </md-expansion-panel-header>
+     
+        <md-expansion-panel-content>
+          <md-list layout-padding>
+            <md-list-item class="md-2-line" ng-repeat="detail in combo.details" ng-if="$ctrl.count(detail.quantity)">
+              <img ng-src="./images/{{detail.product.image}}" class="md-avatar" alt=""/>
+              <div class="md-list-item-text">
+                <h3>{{ detail.product.name }}</h3>
+                <h4>{{ detail.quantity }} {{ detail.unity }}</h4>
+                <!-- <p>Precio Unitario: {{ detail.product.price.price | bolivar }} Bs.</p> -->
+              </div>
+              
+            </md-list-item>
+          </md-list>
+
+        </md-expansion-panel-content>
+     
+        <md-expansion-panel-footer>
+          <div flex></div>
+          <!-- <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button> -->
+          <md-button class="md-primary" ng-click="$ctrl.save(combo.id)">Entregar</md-button>
+        </md-expansion-panel-footer>
+     
+      </md-expansion-panel-expanded>
+    </md-expansion-panel>
+  </md-expansion-panel-group>
+</article>
+

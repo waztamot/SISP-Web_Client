@@ -6,7 +6,7 @@
     },*/
     controller: HomerController,
     template: `
-      <div layout="row" layout-align="space-around center" layout-wrap>
+      <div layout="row" layout-align="space-around center" layout-wrap layout-padding>
         <!-- <home-card flex-xs="98" flex-gt-xs="50" flex-lg="30" flex-xl="30" ng-repeat="(key, value) in [1,2,3,4,5,6,8]"></home-card> -->
 
         <md-card flex-xs="98" flex-gt-xs="50" flex-lg="30" flex-xl="30" ng-if="$ctrl.can('product')">
@@ -19,7 +19,7 @@
           <img ng-src="./images/product.png" class="md-card-image" alt="Productos">
           <md-card-actions layout="row" layout-align="center">
             <md-card-icon-actions ng-if="$ctrl.can('product.config')">
-              <md-button class="md-fab md-mini md-accent hue-1" ng-click="$ctrl.on()">
+              <md-button class="md-fab md-mini md-accent hue-1" ui-sref="management">
                 <md-icon md-font-set="material-icons">settings</md-icon>
                 <md-tooltip md-direction="top">
                   Gestion
@@ -28,7 +28,7 @@
             </md-card-icon-actions>
             <md-button class="md-raised md-primary" ng-if="!$ctrl.can('product.group_requested')" ui-sref="requestIndividual">Solicitar</md-button>
             <md-button class="md-raised md-primary" ng-if="$ctrl.can('product.group_requested')" ng-click="$ctrl.showDialog($event)">Solicitar</md-button>
-            <md-button class="md-primary">Entregar</md-button>
+            <md-button class="md-primary" ng-if="$ctrl.can('product.delivery')" ui-sref="delivery">Entregar</md-button>
           </md-card-actions>
         </md-card>
 

@@ -14,7 +14,7 @@
 	<script src='/js/app.js'></script>
   <!-- Script para que funcione el LiveReload -->
   <script type="text/javascript">
-    document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>');
+    document.write('<script src="//'+document.domain+':35729/livereload.js?snipver=1" type="text/javascript"><\/script>');
   </script>
   <script type="text/ng-template" id="typeSolicitude.tmpl.html">
     <md-dialog aria-label="Tipo de Solicitud">
@@ -62,6 +62,45 @@
           </md-button>
           <md-button class="md-primary" ui-sref="requestGroup" ng-click="close()">
             Adquirir
+          </md-button>
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+  </script>
+  <script type="text/ng-template" id="validateQuantityProduct.tmpl.html">
+    <md-dialog aria-label="Tipo de Solicitud">
+      <form ng-cloak>
+        <md-toolbar>
+          <div class="md-toolbar-tools md-medium-tall">
+            <h2>Productos a entregar</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="close()">
+              <md-icon md-font-set="material-icons" aria-label="Cerrar">close</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-dialog-content md-scroll-shrink>
+          <section ng-repeat="combo in combos" ng-if="exists(combo.requisition_id)">
+            <md-subheader class="md-primary">{{combo.name}}</md-subheader>
+            <md-list layout-padding>
+              <md-list-item class="md-2-line" ng-repeat="detail in combo.details" ng-if="count(detail.quantity)">
+                <img ng-src="./images/{{detail.product.image}}" class="md-avatar" alt=""/>
+                <div class="md-list-item-text">
+                  <h3>{{ detail.product.name }}</h3>
+                  <h4>{{ detail.quantity }} {{ detail.unity }}</h4>
+                  <!-- <p>Precio Unitario: {{ detail.product.price.price | bolivar }} Bs.</p> -->
+                </div>
+                
+              </md-list-item>
+            </md-list>
+          </section>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center center" style="padding: 0">
+          <md-button class="md-raised md-primary" ng-click="close()">
+            Confirmar
+          </md-button>
+          <md-button class="md-primary" ng-click="close()">
+            Cancelar
           </md-button>
         </md-dialog-actions>
       </form>

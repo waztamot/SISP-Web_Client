@@ -1,12 +1,12 @@
 import angular from 'angular';
-// import RequestGroupService from './group.service';
+import RequestGroupService from './group.service';
 import { GroupComponent } from './group.component';
 
 const group = angular
   .module('request.group', [
     // dasdas
     ])
-  // .service('RequestGroupService', RequestGroupService)
+  .service('RequestGroupService', RequestGroupService)
   .component('requestGroup', GroupComponent)
   .config(($stateProvider) => {
     $stateProvider

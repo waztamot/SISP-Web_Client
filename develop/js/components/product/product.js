@@ -1,14 +1,14 @@
 import angular from 'angular';
-// import Deliver from './deliver/deliver';
+import Delivery from './delivery/delivery';
 import ProductService from './product.service';
 import Request from './request/request';
-// import Setup from './setup/setup';
+import Management from './management/management';
 
 const product = angular
   .module('product', [
-    // Deliver,
+    Delivery,
     Request,
-    // Setup,
+    Management,
     ])
   .service('ProductService', ProductService)
   .name;
